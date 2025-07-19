@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
 
-const FaceDetection = () => {
+const FaceExpression = () => {
   const videoRef = useRef();
   const canvasRef = useRef();
 
@@ -64,13 +64,9 @@ const FaceDetection = () => {
         style={{ position: "absolute" }}
       /> 
     </div>
-    <button onclick={handleVideoPlay} className="btn">Detect Mood</button>
+    <button onClick={handleVideoPlay} className="btn">Detect Mood</button>
   </div>
     </>
   );
 };
-<<<<<<< HEAD
-=======
-
->>>>>>> 1617746 (third commit)
-export default FaceDetection;
+export default FaceExpression;

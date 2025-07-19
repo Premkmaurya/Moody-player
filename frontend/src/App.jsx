@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import FacialExpression from "../src/components/FacialExpression"
+import SongListItem from "../src/components/SongListItem"
 
 const trendingSongs = [
   { title: "Attention", artist: "Doja Cat"},
@@ -15,10 +16,7 @@ export default function MusicApp() {
       <FacialExpression />
       <main>
         <h2>Recommanded Songs</h2>
-        <div className="song-list">
-          {trendingSongs.map((song, i) => (
-            <SongListItem key={i} {...song} />
-          ))}
+            <SongListItem />
         </div>
       </main>
     </div>
@@ -26,17 +24,4 @@ export default function MusicApp() {
 }
 
 
-function SongListItem({ title, artist }) {
-  return (
-    <div className="song-list-item">
-      <div className="avatar"></div>
-      <div>
-        <div className="song-title">{title}</div>
-        <div className="song-artist">{artist}</div>
-      </div>
-      <div className="song-actions">
-        <FaHeart />
-      </div>
-    </div>
-  );
-}
+
