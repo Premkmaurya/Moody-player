@@ -1,8 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .music-app {
   background: #f8f6f9;
   height: 95vh;
   display: flex;
   flex-direction: column;
+  padding: 1rem 4rem;
 }
 header {
   display: flex;
@@ -44,3 +50,32 @@ main {
   color: #885630;
 }
 
+.videoDiv{
+  width: 22rem;
+  height: 17rem;
+  background-color: red;
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.videoElm{
+  width:100%;
+  height:100%;
+}
+.btn{
+  padding: 1rem 1.2rem;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  background-color: skyblue;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

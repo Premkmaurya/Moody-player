@@ -32,54 +32,45 @@ const FaceDetection = () => {
   }, []);
 
   const handleVideoPlay = () => {
-    const canvas = canvasRef.current;
-    const video = videoRef.current;
+   setInterval(async () => {
+  const detections = await faceapi
+    .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+    .withFaceExpressions();
 
-    const displaySize = {
-      width: video.videoWidth,
-      height: video.videoHeight
-    };
+  console.log(detections);
 
-    faceapi.matchDimensions(canvas, displaySize);
+  const resized = faceapi.resizeResults(detections, displaySize);
 
-    setInterval(async () => {
-      const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
-        .withFaceExpressions();
-
-      const resized = faceapi.resizeResults(detections, displaySize);
-      canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-
-      faceapi.draw.drawDetections(canvas, resized);
-      faceapi.draw.drawFaceExpressions(canvas, resized);
-
-      if (resized[0]) {
-        const expressions = resized[0].expressions;
-        const maxExp = Object.entries(expressions).reduce((max, curr) =>
-          curr[1] > max[1] ? curr : max
-        );
-        console.log("Detected Emotion:", maxExp[0]);
-      }
-    }, 300);
+  if (resized[0]) {
+    const expressions = resized[0].expressions;
+    const maxExp = Object.entries(expressions).reduce((max, curr) =>
+      curr[1] > max[1] ? curr : max
+    );
+    console.log("Detected Emotion:", maxExp[0]);
+  }
+}, 300);
   };
 
   return (
-    <div style={{ position: "relative" }}>
-      <video
+    <>
+    <div className="container">
+    <div className="videoDiv" style={{ position: "relative" }}>
+       <video
+      className="videoElm"
         ref={videoRef}
         autoPlay
         muted
-        width="720"
-        height="560"
         onPlay={handleVideoPlay}
         style={{ position: "absolute" }}
-      />
-      <canvas
-        ref={canvasRef}
-        width="720"
-        height="560"
-        style={{ position: "absolute" }}
-      />
+      /> 
     </div>
+    <button onclick={handleVideoPlay} className="btn">Detect Mood</button>
+  </div>
+    </>
   );
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1617746 (third commit)
 export default FaceDetection;
