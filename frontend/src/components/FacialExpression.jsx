@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
 
-const FaceExpression = () => {
+const FaceDetection = () => {
   const videoRef = useRef();
   const canvasRef = useRef();
 
@@ -64,7 +64,8 @@ const FaceExpression = () => {
         style={{ position: "absolute" }}
       /> 
     </div>
-    <button onClick={handleVideoPlay} className="btn">Detect Mood</button>
+
+    <button onclick={handleVideoPlay} className="btn">Detect Mood</button>
   </div>
     </>
   );
