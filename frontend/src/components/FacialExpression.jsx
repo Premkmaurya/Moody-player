@@ -3,7 +3,7 @@ import * as faceapi from "face-api.js";
 
 const FacialExpression = () => {
   const videoRef = useRef();
-  const canvasRef = useRef();
+  const headingRef = useRef();
 
   useEffect(() => {
     const loadModels = async () => {
@@ -17,6 +17,7 @@ const FacialExpression = () => {
     const startVideo = () => {
       navigator.mediaDevices.getUserMedia({ video: {} })
         .then((stream) => {
+          headingRef.current.style.display = 'none';
           videoRef.current.srcObject = stream;
         })
         .catch((err) => console.error("Camera error:", err));
@@ -55,6 +56,7 @@ const FacialExpression = () => {
     <>
     <div className="container">
     <div className="videoDiv" style={{ position: "relative" }}>
+      <h1 ref={headingRef} >Detect your mood</h1>
        <video
       className="videoElm"
         ref={videoRef}

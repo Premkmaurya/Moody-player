@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: system-ui;
 }
 .music-app {
   background: #f8f6f9;
@@ -53,12 +54,16 @@ main {
 .videoDiv{
   width: 22rem;
   height: 17rem;
-  background-color: red;
+  color: whitesmoke;
+  background-color: black;
   margin-bottom: 2rem;
   border-radius: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+}
+.videoDiv h1{
+  text-align: center;
 }
 .videoElm{
   object-fit: contain;
