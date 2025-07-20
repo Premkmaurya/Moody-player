@@ -59,7 +59,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  object-fit: cover;
+  object-fit: contain;
 }
 .videoElm{
   width:100%;
@@ -83,10 +83,10 @@ main {
 @media (max-width: 720px){
   .container{
     flex-direction: column;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
-  .song-list{
-    padding: 0;
+  .music-app{
+    padding: 1rem 1rem;
   }
   .song-list h2{
     margin-bottom: 1rem;
